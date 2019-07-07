@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Application form</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+</head>
+
+<body>
+
+  <section class="section">
+    <div class="container" style="max-width: 1000px;">
+      <h2 class="title is-2">
+        Application Form Prototype
+      </h2>
+
+
+      <h3 class="title is-3">
+        <div class="columns is-mobile">
+          <div class="column is-narrow">
+            1
+          </div>
+          <div class="column">
+            Information about the framework conditions of the proposed research
+          </div>
+        </div>
+      </h3>
+
+
+      <h4 class="title is-4">
+        <div class="columns is-mobile">
+          <div class="column is-narrow">
+            1.1
+          </div>
+          <div class="column">
+            Prior validation
+          </div>
+        </div>
+      </h4>
+      <div class="content">
+          Has the research already been validated by the EK?
+        </div>
+      <div class="indent">
+
+        
+
+        <div class="field">
+          <input class="form-radio" id="priorValidation_no" type="radio" name="priorValidation">
+          <label for="priorValidation_no">
+            No
+          </label>
+        </div>
+
+        <div class="field">
+          <input class="form-radio" id="priorValidation_yesMethodology" type="radio" name="priorValidation">
+          <label for="priorValidation_yesMethodology">
+            Yes. This research follows a university department methodology that has been studied and approved with
+            respect
+            to requirements for the Ethik Votum. (Relevant to this question is the “Lab Vote” which some universities
+            grant to laboratories using a single basic methodology).
+          </label>
+        </div>
+        <div class="indent hidden" data-requires="priorValidation_yesMethodology">
+          <div class="field">
+            <textarea class="textarea is-warning" placeholder="Please specify"></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <input class="form-radio" id="priorValidation_yesAmendment" type="radio" name="priorValidation">
+          <label for="priorValidation_yesAmendment">
+            Yes. This research is a minor amendment of a project already approved by the FSU EK.
+          </label>
+        </div>
+        <div class="indent hidden" data-requires="priorValidation_yesAmendment">
+          <div class="field">
+            <textarea class="textarea is-warning" placeholder="Please specify"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <h3 class="title is-4">
+          <div class="columns is-mobile">
+            <div class="column is-narrow">
+              1.2
+            </div>
+            <div class="column">
+              Research start and end date
+            </div>
+          </div>
+        </h3>
+
+
+      <div class="content">
+        Overall time period covered by Ethic Votum:
+      </div>
+      <div class="indent">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  From
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  Until
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        Proposed funding period:
+      </div>
+      <div class="indent">
+
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  From
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  Until
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        Proposed data collection period:
+      </div>
+      <div class="indent">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  From
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+
+            <div class="field has-addons">
+              <div class="control">
+                <a class="button is-warning">
+                  Until
+                </a>
+              </div>
+              <div class="control is-expanded">
+                <input class="input is-warning" type="date">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        Has the research covered by this EK Antrag already begun? (for example: data of human subjects has already been
+        collected/the collection is in process)
+      </div>
+     <div class="indent">
+        <div class="field is-horizontal">
+            <div class="field">
+          <input class="form-radio" id="researchHasBegun_Yes" type="radio" name="researchHasBegun">
+          <label for="researchHasBegun_Yes">
+            Yes
+          </label>
+          </div>
+          <div class="field">
+
+          <input class="form-radio" id="researchHasBegun_No" type="radio" name="researchHasBegun">
+          <label for="researchHasBegun_No">
+            No
+          </label>
+        </div>
+        </div>
+      </div>
+
+      <br>
+      <h3 class="title is-4">
+          <div class="columns is-mobile">
+            <div class="column is-narrow">
+              1.3
+            </div>
+            <div class="column">
+              Funding
+            </div>
+          </div>
+        </h3>
+
+        <h3 class="title is-5">
+            <div class="columns is-mobile">
+              <div class="column is-narrow">
+                1.3.1
+              </div>
+              <div class="column">
+                  Form of funding
+              </div>
+            </div>
+          </h3>
+
+          <div class="content">
+              Which form of funding applies to the proposed research?
+          </div>
+      
+
+          <div class="indent">
+
+        
+
+              <div class="field">
+                <input class="form-radio" id="fundingType_internal" type="radio" name="fundingType">
+                <label for="fundingType_internal">
+                    University-based research, no outside support
+                </label>
+              </div>
+      
+              <div class="field">
+                <input class="form-radio" id="fundingType_government" type="radio" name="fundingType">
+                <label for="fundingType_government">
+                    Public/government funding (EU, DFG, BMBF, Humboldt,…) 
+                </label>
+              </div>
+              <div class="indent hidden" data-requires="fundingType_government">
+                <div class="field">
+                  <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                </div>
+              </div>
+      
+              <div class="field">
+                <input class="form-radio" id="fundingType_foundation" type="radio" name="fundingType">
+                <label for="fundingType_foundation">
+                    Foundation funding 
+                    <span class="hint hidden" data-requires="fundingType_foundation">
+                        Please indicate whether public or private
+                     </span>
+                </label>
+                <div class="indent hidden" data-requires="fundingType_foundation">
+                  
+                    <div class="field">
+                        <input class="form-radio" id="fundingTypeFoundation_public" type="radio" name="fundingTypeFoundation">
+                        <label for="fundingTypeFoundation_public">
+                            Public
+                            
+                        </label>
+                    </div>
+                    <div class="indent hidden" data-requires="fundingTypeFoundation_public">
+                        <div class="field">
+                          <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <input class="form-radio" id="fundingTypeFoundation_private" type="radio" name="fundingTypeFoundation">
+                        <label for="fundingTypeFoundation_private">
+                            Private
+                            
+                        </label>
+                    </div>
+                    <div class="indent hidden" data-requires="fundingTypeFoundation_private">
+                        <div class="field">
+                          <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+
+
+              <div class="field">
+                  <input class="form-radio" id="fundingType_industry" type="radio" name="fundingType">
+                  <label for="fundingType_industry">
+                      Industry funding 
+                      <span class="hint hidden" data-requires="fundingType_industry">
+                         Please describe cooperation, funding levels, potential ethical issues of conflicting interests
+                      </span>
+                  </label>
+                </div>
+                <div class="indent hidden" data-requires="fundingType_industry">
+                  <div class="field">
+                    <textarea class="textarea is-warning" placeholder=""></textarea>
+                  </div>
+                </div>
+
+                <div class="field">
+                    <input class="form-radio" id="fundingType_other" type="radio" name="fundingType">
+                    <label for="fundingType_other">
+                       Other forms of funding
+                    </label>
+                  </div>
+                  <div class="indent hidden" data-requires="fundingType_other">
+                    <div class="field">
+                      <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                    </div>
+                  </div>
+
+              
+            </div>
+      
+
+            <br>
+            <h3 class="title is-5">
+                <div class="columns is-mobile">
+                  <div class="column is-narrow">
+                    1.3.2
+                  </div>
+                  <div class="column">
+                      Conflict of interest
+                  </div>
+                </div>
+              </h3>
+
+              <div class="content">
+                  Report any potential conflicts of interest, even if superficial (conflict of interest, industry bias, research freedom issues):
+              </div>
+
+              <div class="indent">
+                  <div class="field">
+                    <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                  </div>
+                </div>
+
+
+                <br>
+
+                <h3 class="title is-5">
+                    <div class="columns is-mobile">
+                      <div class="column is-narrow">
+                        1.3.3
+                      </div>
+                      <div class="column">
+                          Availability of results
+                      </div>
+                    </div>
+                  </h3>
+
+                  <div class="content">
+                      How will the results be available?
+                  </div>
+
+                  <div class="indent">
+
+                  <div class="field">
+                      <input class="form-radio" id="resultAvailability_open" type="radio" name="resultAvailability">
+                      <label for="resultAvailability_open">
+                          Openly available (standard academic publishing process)
+                      </label>
+                    </div>
+            
+                    <div class="field">
+                      <input class="form-radio" id="resultAvailability_restricted" type="radio" name="resultAvailability">
+                      <label for="resultAvailability_restricted">
+                          Open only for entity providing funds 
+                      </label>
+                    </div>
+                    <div class="indent hidden" data-requires="resultAvailability_restricted">
+                      <div class="field">
+                        <textarea class="textarea is-warning" placeholder="Please describe"></textarea>
+                      </div>
+                    </div>
+                    </div>
+
+
+                    <br>
+                    
+                    <h3 class="title is-5">
+                        <div class="columns is-mobile">
+                          <div class="column is-narrow">
+                            1.3.4
+                          </div>
+                          <div class="column">
+                              Institutional support
+                          </div>
+                        </div>
+                      </h3>
+    
+                      <div class="content">
+                          Is there any institutional support for the proposed research? 
+                      </div>
+
+                      <div class="indent">
+    
+                      <div class="field">
+                          <input class="form-radio" id="institutionalSupport_no" type="radio" name="institutionalSupport">
+                          <label for="institutionalSupport_no">
+                              No
+                          </label>
+                        </div>
+                
+                        <div class="field">
+                          <input class="form-radio" id="institutionalSupport_yes" type="radio" name="institutionalSupport">
+                          <label for="institutionalSupport_yes">
+                              Yes
+                          </label>
+                        </div>
+                        <div class="indent hidden" data-requires="institutionalSupport_yes">
+                          <div class="field">
+                            <textarea class="textarea is-warning" placeholder="Please explain"></textarea>
+                          </div>
+                        </div>
+    
+                      </div>
+
+
+                      <br>
+                    
+                      <h3 class="title is-5">
+                          <div class="columns is-mobile">
+                            <div class="column is-narrow">
+                              1.3.5
+                            </div>
+                            <div class="column">
+                                Proposal requirement
+                            </div>
+                          </div>
+                        </h3>
+      
+                        <div class="content">
+                            Is an ethics committee vote needed for the proposal at the grant institution?
+                        </div>
+  
+                        <div class="indent">
+      
+                            <div class="field is-horizontal">  
+                        <div class="field">
+                            <input class="form-radio" id="proposalRequirement_yes" type="radio" name="proposalRequirement">
+                            <label for="proposalRequirement_yes">
+                                Yes
+                            </label>
+                          </div>
+                  
+                          <div class="field">
+                            <input class="form-radio" id="proposalRequirement_no" type="radio" name="proposalRequirement">
+                            <label for="proposalRequirement_no">
+                                No
+                            </label>
+                          </div>
+                          </div>
+                          
+      
+                        </div>
+  
+
+
+
+      
+      <hr>
+      
+      <div class="container" style="text-align: right">
+          <a class="button is-warning" onclick="checkInput()"><strong>Next:</strong> &nbsp;  Framework of the proposed research</a>
+        </div>
+      
+    </div>
+  </section>
+
+
+</body>
+<script>
+
+  // automatically show/hide sub fields depending on user selection
+
+  var theParent = document.querySelector("body");
+  theParent.addEventListener("click", adaptUI, false);
+  
+  function adaptUI(e) {
+      if (e.target !== e.currentTarget) {
+        if (e.target.id !== "") {
+          var clickedItem = e.target.id;
+
+          var group = clickedItem.split('_')[0];
+          var dependant = clickedItem.split('_')[1];
+
+          var nodes = document.querySelectorAll('*[data-requires^="'+group+'"]');
+
+          for (i=0; i<nodes.length; i++) {
+            if (nodes[i].dataset.requires === clickedItem) {
+                nodes[i].style.display = 'block';
+              } else {
+                nodes[i].style.display = 'none';
+              }
+          }
+
+        }
+          
+      }
+      e.stopPropagation();
+  }
+
+  // field check
+  function checkInput() {
+
+    var checkSuccessful = true;
+
+    //var nodes = document.querySelectorAll("input[type=text]");
+
+    // check textboxes
+    var nodes = document.querySelectorAll('textarea');
+    for (var i=0; i<nodes.length; i++) {
+      // if visible
+      if (nodes[i].offsetParent !== null) {
+        if (nodes[i].value == ""){
+          checkSuccessful = false;
+          nodes[i].style.boxShadow = '0px 0px 5px red';
+        }
+      }
+    }
+
+    // check input fields
+    var nodes = document.querySelectorAll('input');
+    for (var i=0; i<nodes.length; i++) {
+      // if visible
+      if (nodes[i].offsetParent !== null) {
+        // if empty
+        if (nodes[i].value == ""){
+          checkSuccessful = false;
+          nodes[i].style.boxShadow = '0px 0px 5px red';
+        }
+      }
+    }
+
+    // radio buttons
+    var nodes = document.querySelectorAll('input[type=radio]');
+    for (var i=0; i<nodes.length; i++) {
+      // if visible
+      if (nodes[i].offsetParent !== null) {
+        
+        var name = nodes[i].id.split('_')[0];
+        if (document.querySelector('input[name="'+name+'"]:checked') === null) {
+          checkSuccessful = false;
+          nodes[i].style.boxShadow = '0px 0px 5px red';
+        }
+  
+      }
+    }
+
+
+    if (checkSuccessful) {
+      alert('All text boxes have been filled. If this was not just a prototype, you would be forwarded to the next page :)');
+    } else {
+      alert('There are empty text boxes. They have been marked red and need to be filled before continuing to the next page.');
+    }
+        
+    return "valid";
+  }
+
+
+</script>
+
+</html>
