@@ -8,10 +8,12 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+  
+
 </head>
 
 <body>
-
+    <form data-persist="garlic" method="POST">
   <section class="section">
     <div class="container" style="max-width: 1000px;">
       <h2 class="title is-2">
@@ -199,7 +201,8 @@
 
       <div class="content">
         <p>
-          Has the research covered by this EK Antrag already begun? (for example: data of human subjects has already been collected/the collection is in process)
+          Has the research covered by this EK Antrag already begun? (for example: data of human subjects has already
+          been collected/the collection is in process)
         </p>
       </div>
       <div class="indent">
@@ -358,7 +361,8 @@
 
       <div class="content">
         <p>
-          Report any potential conflicts of interest, even if superficial (conflict of interest, industry bias, research freedom issues):
+          Report any potential conflicts of interest, even if superficial (conflict of interest, industry bias, research
+          freedom issues):
         </p>
       </div>
 
@@ -502,148 +506,178 @@
 
       <div class="container" style="text-align: right">
         <a class="button is-light" onclick="save()">Download</a>
-        <a class="button is-warning" onclick="checkInput()"><strong>Next:</strong> &nbsp; Framework of the proposed
+        <a class="button is-warning" onclick="next()"><strong>Next:</strong> &nbsp; Framework of the proposed
           research</a>
       </div>
 
     </div>
   </section>
+</form>
+
+  <script>
 
 
-<script>
 
+    // automatically show/hide sub fields depending on user selection
 
+    var theParent = document.querySelector("body");
+    theParent.addEventListener("click", adaptUI, false);
 
-  // automatically show/hide sub fields depending on user selection
+    function adaptUI(e) {
+      if (e.target !== e.currentTarget) {
+        if (e.target.id !== "") {
+          var clickedItem = e.target.id;
 
-  var theParent = document.querySelector("body");
-  theParent.addEventListener("click", adaptUI, false);
+          var group = clickedItem.split('_')[0];
+          var dependant = clickedItem.split('_')[1];
 
-  function adaptUI(e) {
-    if (e.target !== e.currentTarget) {
-      if (e.target.id !== "") {
-        var clickedItem = e.target.id;
+          var nodes = document.querySelectorAll('*[data-requires^="' + group + '"]');
 
-        var group = clickedItem.split('_')[0];
-        var dependant = clickedItem.split('_')[1];
+          for (i = 0; i < nodes.length; i++) {
+            if (nodes[i].dataset.requires === clickedItem) {
+              nodes[i].style.display = 'block';
+            } else {
+              nodes[i].style.display = 'none';
+            }
+          }
 
-        var nodes = document.querySelectorAll('*[data-requires^="' + group + '"]');
+        }
 
-        for (i = 0; i < nodes.length; i++) {
-          if (nodes[i].dataset.requires === clickedItem) {
-            nodes[i].style.display = 'block';
-          } else {
-            nodes[i].style.display = 'none';
+      }
+      e.stopPropagation();
+    }
+
+    // field check
+    function checkInput() {
+
+      var checkSuccessful = true;
+
+      //var nodes = document.querySelectorAll("input[type=text]");
+
+      // check textboxes
+      var nodes = document.querySelectorAll('textarea');
+      for (var i = 0; i < nodes.length; i++) {
+        // if visible
+        if (nodes[i].offsetParent !== null) {
+          if (nodes[i].value == "") {
+            checkSuccessful = false;
+            nodes[i].style.boxShadow = '0px 0px 5px red';
           }
         }
-
       }
 
-    }
-    e.stopPropagation();
-  }
-
-  // field check
-  function checkInput() {
-
-    var checkSuccessful = true;
-
-    //var nodes = document.querySelectorAll("input[type=text]");
-
-    // check textboxes
-    var nodes = document.querySelectorAll('textarea');
-    for (var i = 0; i < nodes.length; i++) {
-      // if visible
-      if (nodes[i].offsetParent !== null) {
-        if (nodes[i].value == "") {
-          checkSuccessful = false;
-          nodes[i].style.boxShadow = '0px 0px 5px red';
+      // check input fields
+      var nodes = document.querySelectorAll('input');
+      for (var i = 0; i < nodes.length; i++) {
+        // if visible
+        if (nodes[i].offsetParent !== null) {
+          // if empty
+          if (nodes[i].value == "") {
+            checkSuccessful = false;
+            nodes[i].style.boxShadow = '0px 0px 5px red';
+          }
         }
       }
-    }
 
-    // check input fields
-    var nodes = document.querySelectorAll('input');
-    for (var i = 0; i < nodes.length; i++) {
-      // if visible
-      if (nodes[i].offsetParent !== null) {
-        // if empty
-        if (nodes[i].value == "") {
-          checkSuccessful = false;
-          nodes[i].style.boxShadow = '0px 0px 5px red';
+      // radio buttons
+      var nodes = document.querySelectorAll('input[type=radio]');
+      for (var i = 0; i < nodes.length; i++) {
+        // if visible
+        if (nodes[i].offsetParent !== null) {
+
+          var name = nodes[i].id.split('_')[0];
+          if (document.querySelector('input[name="' + name + '"]:checked') === null) {
+            checkSuccessful = false;
+            nodes[i].style.boxShadow = '0px 0px 5px red';
+          }
+
         }
       }
+
+
+      if (checkSuccessful) {
+        return true;
+      } else {
+        return false;
+      }
+
     }
 
-    // radio buttons
-    var nodes = document.querySelectorAll('input[type=radio]');
-    for (var i = 0; i < nodes.length; i++) {
-      // if visible
-      if (nodes[i].offsetParent !== null) {
+    function next() {
+      alert("This is just a prototype... No next page available!");
+    }
 
-        var name = nodes[i].id.split('_')[0];
-        if (document.querySelector('input[name="' + name + '"]:checked') === null) {
-          checkSuccessful = false;
-          nodes[i].style.boxShadow = '0px 0px 5px red';
+    function save() {
+
+      if (checkInput()) {
+        var markup = "";
+
+        var nodes = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, input, textarea")
+        for (var i = 0, len = nodes.length; i < len; i++) {
+
+          var nodeName = nodes[i].nodeName.toLowerCase();
+          var nodeContent = nodes[i].textContent.replace(/  +/g, ' ');
+          // dazwischen evtl. replace(/[^a-zA-Z ]/g, "").
+
+          var element = "";
+
+          // Headings
+          if (nodeName.charAt(0) === "h") {
+            element = "<" + nodeName + ">" + nodeContent + "</" + nodeName + ">"
+            markup += element;
+          }
+
+          // Paragraphs
+          if (nodeName === "p") {
+            element = "<p>" + nodeContent + "</p>"
+            markup += element;
+          }
+
+          // Textareas
+          if (nodeName === "textarea") {
+            element = "<p style='color: blue;'>" + nodes[i].value + "</p>"
+            markup += element;
+          }
+
+
+          // Inputs
+          if (nodeName === "input") {
+
+            // Radio
+            if (nodes[i].type.toLowerCase() === "radio" && nodes[i].checked === true) {
+              element = "<p style='color: blue;'><i>" + nodes[i].labels[0].textContent + "</i></p>"
+              markup += element;
+            }
+
+            // Date
+            if (nodes[i].type.toLowerCase() === "date") {
+              element = "<p style='color: blue;'>" + nodes[i].value + "</p>"
+              markup += element;
+            }
+
+
+          }
+
+
+
         }
 
-      }
-    }
+        console.log(markup);
 
 
-    if (checkSuccessful) {
-      alert('All text boxes have been filled. If this was not just a prototype, you would be forwarded to the next page :)');
-    } else {
-      alert('There are empty text boxes. They have been marked red and need to be filled before continuing to the next page.');
-    }
+        markup = "<html><head><xml><word:WordDocument><word:View>Print</word:View><word:Zoom>90</word:Zoom><word:DoNotOptimizeForBrowser/></word:WordDocument></xml></head><body>" + markup + "</body></html>";
 
-    return "valid";
-  }
-
-  function save() {
-
-    var markup = "";
-
-    var nodes = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, input")
-    for (var i = 0, len = nodes.length; i < len; i++) {
-
-      var nodeName = nodes[i].nodeName.toLowerCase();
-      var nodeContent = nodes[i].textContent.replace(/[^a-zA-Z ]/g, "").replace(/  +/g, ' ');
-
-      var element = "";
-      
-      // Headings
-      if (nodeName.charAt(0) === "h") {
-        element = "<"+nodeName+">" + nodeContent + "</"+ nodeName + ">"
-        markup += element;
+        var blob = new Blob([markup], { type: "text/plain;charset=utf-8" });
+        saveAs(blob, "form.doc");
+      } else {
+        alert("Please fill out this form completely. Afterwards it can be downloaded and sent to the ethics committee. Missing input fields have been marked red.")
       }
 
-      // Paragraphs
-      if (nodeName.charAt(0) === "p") {
-        element = "<"+nodeName+">" + nodeContent + "</"+ nodeName + ">"
-        markup += element;
-      }
-
-      // Textareas
-
-      // Date inputs
-
-      // Radio inputs
 
 
     }
 
-    console.log(markup);
 
-
-    markup = "<html><head><xml><word:WordDocument><word:View>Print</word:View><word:Zoom>90</word:Zoom><word:DoNotOptimizeForBrowser/></word:WordDocument></xml></head><body>" + markup + "</body></html>";
-    
-    var blob = new Blob([markup], { type: "text/plain;charset=utf-8" });
-    saveAs(blob, "form.doc");
-    
-  }
-
-</script>
 
 
 </body>
